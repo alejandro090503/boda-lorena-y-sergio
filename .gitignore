@@ -1,3 +1,6 @@
 .vercel
 _fotos_src
 .claude
+
+.vercel
+.env*
