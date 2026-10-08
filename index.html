@@ -10,6 +10,9 @@
 <meta property="og:title" content="Lorena y Sergio · 07 · XI · MMXXVI">
 <meta property="og:description" content="Nos casamos y queremos que estés ahí. Mission, Texas — 7 Noviembre 2026">
 <meta property="og:image" content="https://boda-lorena-y-sergio.vercel.app/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#8A6844">
@@ -45,11 +48,11 @@ html{scroll-behavior:auto}
 body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;line-height:1.5;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* ── ENVELOPE ── */
-#envelope-screen{position:fixed;inset:0;z-index:9000;background:#2a1f15;overflow:hidden;cursor:pointer}
+#envelope-screen{position:fixed;inset:0;z-index:9000;background:#F3EEE3;overflow:hidden;cursor:pointer}
 #envImage,#envVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 #envImage{opacity:0}
 #envVideo{opacity:0}
-.env-tap{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);z-index:10;font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--cream);opacity:0;padding:16px 40px;white-space:nowrap;border:1px solid rgba(235,211,160,.6);border-radius:50px;background:rgba(40,28,16,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.env-tap{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);z-index:10;font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--cream);opacity:0;padding:16px 40px;white-space:nowrap;border:1px solid rgba(153,101,21,.6);border-radius:50px;background:rgba(110,78,40,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .env-tap::before{content:'';position:absolute;inset:0;border-radius:50px;border:1px solid rgba(235,211,160,.5);animation:envpulse 2s ease-out infinite}
 @keyframes envpulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.28);opacity:0}}
 #env-flash{position:fixed;inset:0;z-index:9999;background:var(--beige);opacity:0;pointer-events:none}
