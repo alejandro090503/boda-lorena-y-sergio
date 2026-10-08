@@ -409,6 +409,59 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   border:1px solid rgba(243,220,166,.4);box-shadow:0 0 0 18px rgba(243,220,166,.06),0 0 0 19px rgba(243,220,166,.25),0 0 50px rgba(212,175,55,.3)}
 @keyframes fxFan{0%{transform:scaleX(.92) scaleY(.96);opacity:.75}100%{transform:scaleX(1.06) scaleY(1.04);opacity:1}}
 
+
+/* ── Vestimenta: dibujos dentro de marcos beige ── */
+.dc-figures{gap:14px;align-items:stretch}
+.dc-fig{max-width:168px}
+.dc-frame{position:relative;width:100%;height:290px;padding:16px 10px 10px;border-radius:4px;
+  background:linear-gradient(180deg,#F7EEDD 0%,#EFE2C8 100%);border:1px solid rgba(153,101,21,.45);
+  box-shadow:0 14px 30px rgba(40,25,10,.28),inset 0 0 0 6px #F7EEDD,inset 0 0 0 7px rgba(170,121,66,.45)}
+.dc-frame img{height:100%;width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 6px 10px rgba(60,40,20,.25))}
+.dc-swap img{position:absolute;left:10px;right:10px;bottom:10px;top:16px;width:calc(100% - 20px);height:calc(100% - 26px)}
+.dc-swap img:nth-child(2){animation:dcSwap 9s ease-in-out infinite}
+@keyframes dcSwap{0%,38%{opacity:0}50%,88%{opacity:1}100%{opacity:0}}
+.dc-swap img:nth-child(1){animation:dcSwapB 9s ease-in-out infinite}
+@keyframes dcSwapB{0%,38%{opacity:1}50%,88%{opacity:0}100%{opacity:1}}
+
+/* ══ FONDOS DIFUMINADOS (mesh gradient vivo) ══
+   Cuatro esferas de luz muy suaves por sección (claras y de sombra) que derivan lento.
+   Solo se anima transform; todo es radial-gradient con caída larga = difuminado sin filter:blur. */
+.fx-mesh{inset:-12% -20%}
+.fx-mesh .orb{position:absolute;border-radius:50%;width:var(--s);height:var(--s);left:var(--x);top:var(--y);
+  margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);
+  background:radial-gradient(circle,var(--c) 0%,var(--c2) 32%,transparent 70%);
+  animation:orbDrift var(--d) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+.fx-mesh .orb:nth-child(even){animation-name:orbDrift2}
+@keyframes orbDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(9%,-7%) scale(1.14)}100%{transform:translate(-7%,8%) scale(.94)}}
+@keyframes orbDrift2{0%{transform:translate(0,0) scale(1.06)}50%{transform:translate(-10%,6%) scale(.92)}100%{transform:translate(6%,-9%) scale(1.12)}}
+/* velo de seda muy difuminado que cruza (solo en algunas) */
+.fx-mesh.has-sheen::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:70%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,242,213,.05) 30%,rgba(255,242,213,.13) 50%,rgba(255,242,213,.05) 70%,transparent 100%);
+  animation:meshSheen 16s ease-in-out infinite}
+@keyframes meshSheen{0%{transform:translateX(0) skewX(-14deg)}100%{transform:translateX(260%) skewX(-14deg)}}
+/* paletas: L = champaña, G = oro, A = ámbar, S = sombra cacao (da profundidad) */
+.fx-m1 .orb:nth-child(1){--s:420px;--x:18%;--y:22%;--c:rgba(255,242,213,.30);--c2:rgba(255,242,213,.12);--d:19s}
+.fx-m1 .orb:nth-child(2){--s:380px;--x:84%;--y:70%;--c:rgba(212,175,55,.32);--c2:rgba(212,175,55,.12);--d:23s}
+.fx-m1 .orb:nth-child(3){--s:360px;--x:12%;--y:82%;--c:rgba(58,36,16,.32);--c2:rgba(58,36,16,.12);--d:21s;--dl:-6s}
+.fx-m1 .orb:nth-child(4){--s:300px;--x:88%;--y:14%;--c:rgba(232,176,104,.26);--c2:rgba(232,176,104,.10);--d:17s;--dl:-3s}
+
+.fx-m2 .orb:nth-child(1){--s:460px;--x:50%;--y:48%;--c:rgba(212,175,55,.30);--c2:rgba(212,175,55,.11);--d:22s}
+.fx-m2 .orb:nth-child(2){--s:340px;--x:30%;--y:8%;--c:rgba(255,242,213,.26);--c2:rgba(255,242,213,.10);--d:18s;--dl:-4s}
+.fx-m2 .orb:nth-child(3){--s:380px;--x:6%;--y:96%;--c:rgba(50,30,12,.34);--c2:rgba(50,30,12,.13);--d:24s}
+.fx-m2 .orb:nth-child(4){--s:360px;--x:96%;--y:88%;--c:rgba(50,30,12,.30);--c2:rgba(50,30,12,.11);--d:20s;--dl:-8s}
+
+.fx-m3 .orb:nth-child(1){--s:440px;--x:50%;--y:34%;--c:rgba(255,242,213,.34);--c2:rgba(255,242,213,.13);--d:20s}
+.fx-m3 .orb:nth-child(2){--s:320px;--x:2%;--y:58%;--c:rgba(232,176,104,.28);--c2:rgba(232,176,104,.10);--d:17s;--dl:-5s}
+.fx-m3 .orb:nth-child(3){--s:320px;--x:98%;--y:46%;--c:rgba(212,175,55,.30);--c2:rgba(212,175,55,.11);--d:21s;--dl:-2s}
+.fx-m3 .orb:nth-child(4){--s:400px;--x:50%;--y:104%;--c:rgba(55,34,14,.30);--c2:rgba(55,34,14,.11);--d:25s}
+
+.fx-m4 .orb:nth-child(1){--s:400px;--x:50%;--y:2%;--c:rgba(240,190,120,.34);--c2:rgba(240,190,120,.12);--d:18s}
+.fx-m4 .orb:nth-child(2){--s:360px;--x:10%;--y:72%;--c:rgba(255,242,213,.24);--c2:rgba(255,242,213,.09);--d:22s;--dl:-7s}
+.fx-m4 .orb:nth-child(3){--s:380px;--x:94%;--y:58%;--c:rgba(55,34,14,.32);--c2:rgba(55,34,14,.12);--d:20s}
+.fx-m4 .orb:nth-child(4){--s:260px;--x:70%;--y:94%;--c:rgba(212,175,55,.26);--c2:rgba(212,175,55,.10);--d:16s;--dl:-3s}
+.sx.is-idle .orb{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.fx-mesh .orb,.fx-mesh::after,.dc-swap img{animation:none}}
+
 /* pausa fuera de pantalla (clase añadida, nunca quitada por defecto) */
 .sx.is-idle>.fx,.sx.is-idle>.fx::before,.sx.is-idle>.fx::after{animation-play-state:paused}
 /* el cierre usa el mismo color costura */
@@ -469,7 +522,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (2) MENSAJE DE UNIÓN -->
-  <section class="sec sx sx-caramel grain rv" data-fx="flow" style="text-align:center">
+  <section class="sec sx sx-caramel grain rv" data-fx="m1" style="text-align:center">
     <span class="eyebrow">Con la bendición de Dios</span>
     <div class="orn"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <h2 class="heading foil">Lorena y Sergio</h2>
@@ -479,7 +532,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (3) CUENTA REGRESIVA -->
-  <section class="sec-sm sx sx-deep grain rv" data-fx="aurora" style="text-align:center">
+  <section class="sec-sm sx sx-deep grain rv" data-fx="m2" style="text-align:center">
     <span class="eyebrow">Faltan</span>
     <div class="card" style="max-width:380px;margin:0 auto;padding:30px 12px">
       <div class="cd-row">
@@ -495,7 +548,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (4) NUESTRAS FAMILIAS -->
-  <section class="sec sx sx-gold grain rv" data-fx="filigree" style="text-align:center">
+  <section class="sec sx sx-gold grain rv" data-fx="m3 sheen" style="text-align:center">
     <span class="eyebrow">Con la bendición de</span>
     <h2 class="heading-sm foil">Nuestras Familias</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
@@ -521,7 +574,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (5) UBICACIÓN -->
-  <section class="sec sx sx-mocha grain rv" data-fx="chandelier" style="text-align:center">
+  <section class="sec sx sx-mocha grain rv" data-fx="m4" style="text-align:center">
     <span class="eyebrow">Dónde celebramos</span>
     <h2 class="heading-sm foil">Ubicación</h2>
     <p class="sub" style="margin-top:6px">Mission y Alamo, Texas</p>
@@ -565,7 +618,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (6) ITINERARIO -->
-  <section class="sec sx sx-deep grain rv" data-fx="silk" style="text-align:center">
+  <section class="sec sx sx-deep grain rv" data-fx="m2" style="text-align:center">
     <span class="eyebrow">Programa del día</span>
     <h2 class="heading-sm foil">Itinerario</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
@@ -579,7 +632,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (7) NUESTRA HISTORIA — GALERÍA RUEDA 3D -->
-  <section id="galeria" class="sec-sm sx sx-gold grain rv" data-fx="aurora" style="text-align:center;overflow:hidden" aria-label="Galería de fotos">
+  <section id="galeria" class="sec-sm sx sx-gold grain rv" data-fx="m3" style="text-align:center;overflow:hidden" aria-label="Galería de fotos">
     <span class="eyebrow">Nuestra Historia</span>
     <h2 class="heading-sm foil">Galería</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:26px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
@@ -609,7 +662,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (8) CÓDIGO DE VESTIMENTA -->
-  <section class="sec sx sx-caramel grain rv" data-fx="flow" style="text-align:center">
+  <section class="sec sx sx-caramel grain rv" data-fx="m1 sheen" style="text-align:center">
     <span class="eyebrow">Código de vestimenta</span>
     <h2 class="heading-sm foil">Formal Elegante</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:0"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
@@ -621,13 +674,18 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     </div>
 
     <div class="dc-figures rv">
-      <div class="dc-fig"><img src="caballero.webp" alt="Caballero con traje formal oscuro" loading="lazy"><span class="dc-fig-label">Ellos</span></div>
-      <div class="dc-fig"><img src="dama.webp" alt="Dama con vestido largo elegante" loading="lazy"><span class="dc-fig-label">Ellas</span></div>
+      <div class="dc-fig">
+        <div class="dc-frame dc-swap">
+          <img src="caballero.webp" alt="Caballero con traje formal oscuro y corbata" loading="eager">
+          <img src="vaquero-sombrero.webp" alt="Caballero con traje vaquero en tono sobrio y sombrero" loading="eager">
+        </div>
+        <span class="dc-fig-label">Ellos</span>
+      </div>
+      <div class="dc-fig">
+        <div class="dc-frame"><img src="dama.webp" alt="Dama con vestido largo elegante" loading="eager"></div>
+        <span class="dc-fig-label">Ellas</span>
+      </div>
     </div>
-    <figure class="dc-board rv">
-      <img src="vaquero.webp" alt="Ejemplo de trajes vaqueros en tonos sobrios con sombrero y vestidos largos" loading="lazy">
-      <figcaption>Trajes vaqueros en tonos sobrios con sombrero de lana también son bienvenidos</figcaption>
-    </figure>
 
     <div class="card dc-pal rv">
       <span class="dc-pal-lbl">Colores sugeridos</span>
@@ -653,7 +711,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (*) SOLO ADULTOS — mensaje de la Plantilla 1 (en lugar de Hospedaje) -->
-  <section id="kids-policy" class="sec sx sx-mocha grain rv" data-fx="deco" style="text-align:center">
+  <section id="kids-policy" class="sec sx sx-mocha grain rv" data-fx="m4" style="text-align:center">
     <span class="eyebrow">Con todo nuestro cariño</span>
     <svg class="kp-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="32" cy="32" r="29"/><circle cx="32" cy="32" r="24.5" opacity=".45"/>
@@ -667,7 +725,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (9) MESA DE REGALOS -->
-  <section id="regalos" class="sec sx sx-gold grain rv" data-fx="gilt" style="text-align:center">
+  <section id="regalos" class="sec sx sx-gold grain rv" data-fx="m3 sheen" style="text-align:center">
     <span class="eyebrow">Mesa de regalos</span>
     <h2 class="heading foil">Un Obsequio</h2>
     <svg class="gift-svg" viewBox="0 0 160 112" fill="none" aria-hidden="true">
@@ -683,7 +741,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (10) ÁLBUM COMPARTIDO -->
-  <section class="sec sx sx-caramel grain rv" data-fx="silk" style="text-align:center">
+  <section class="sec sx sx-caramel grain rv" data-fx="m1" style="text-align:center">
     <span class="eyebrow">Comparte tus fotos</span>
     <h2 class="heading-sm foil">Álbum Compartido</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:0"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
@@ -701,7 +759,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   </section>
 
   <!-- (11) CONFIRMACIÓN DE ASISTENCIA -->
-  <section id="rsvp" class="sec sx sx-deep grain rv" data-fx="flow" style="text-align:center">
+  <section id="rsvp" class="sec sx sx-deep grain rv" data-fx="m2 sheen" style="text-align:center">
     <div class="rsvp-card rv">
       <svg class="rsvp-corner rsvp-corner--tl" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="#996515" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="#996515" opacity=".5"/></svg>
       <svg class="rsvp-corner rsvp-corner--tr" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="#996515" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="#996515" opacity=".5"/></svg>
@@ -1118,7 +1176,9 @@ function initMain(){
   var secs=document.querySelectorAll('.sx[data-fx]');
   secs.forEach(function(sec){
     var fx=document.createElement('div');
-    fx.className='fx fx-'+sec.getAttribute('data-fx');
+    var v=sec.getAttribute('data-fx').split(' ');
+    fx.className='fx fx-mesh fx-'+v[0]+(v[1]==='sheen'?' has-sheen':'');
+    for(var k=0;k<4;k++){var o=document.createElement('span');o.className='orb';fx.appendChild(o);}
     fx.setAttribute('aria-hidden','true');
     sec.insertBefore(fx,sec.firstChild);
   });
