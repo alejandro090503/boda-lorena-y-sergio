@@ -219,13 +219,13 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 /* ── ÁLBUM QR ── */
 .album-qr-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px}
 .album-qr-box{width:180px;height:180px;background:#fff;border-radius:8px;padding:14px;box-shadow:0 10px 30px rgba(40,25,10,.3);border:2px solid var(--gold-lt)}
-.qr-grid{width:100%;height:100%;position:relative;display:grid;grid-template-columns:repeat(15,1fr);grid-template-rows:repeat(15,1fr);gap:1px}
+.qr-grid{filter:blur(5px);opacity:.85;width:100%;height:100%;position:relative;display:grid;grid-template-columns:repeat(15,1fr);grid-template-rows:repeat(15,1fr);gap:1px}
 .qr-cell{background:var(--ink)}
 .qr-finder{position:absolute;width:32px;height:32px;border:6px solid var(--ink);border-radius:2px}
 .qr-finder-tl{top:0;left:0}
 .qr-finder-tr{top:0;right:0}
 .qr-finder-bl{bottom:0;left:0}
-.album-qr-note{font-family:'Lato',sans-serif;font-weight:700;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream)}
+.album-qr-note{font-family:'Lato',sans-serif;font-weight:700;font-size:13px;line-height:1.7;max-width:280px;text-align:center;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
 
 /* ── RSVP ── */
 .rsvp-card{max-width:400px;margin:0 auto;background:rgba(255,248,236,.95);border:1px solid rgba(153,101,21,.4);padding:clamp(38px,7vw,54px) clamp(20px,5vw,32px);position:relative;border-radius:6px;box-shadow:0 24px 60px rgba(40,25,10,.3)}
@@ -481,7 +481,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   <section class="sec sx sx-mocha grain rv" data-fx="rays" style="text-align:center">
     <span class="eyebrow">Dónde celebramos</span>
     <h2 class="heading-sm foil">Ubicación</h2>
-    <p class="sub" style="margin-top:6px">Mission, Texas</p>
+    <p class="sub" style="margin-top:6px">Mission y Alamo, Texas</p>
 
     <div class="card rv" style="max-width:380px;margin:24px auto 0">
       <span class="loc-venue-lbl">Ceremonia Religiosa</span>
@@ -490,7 +490,8 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
         <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="loc-txt"><strong>5:15 p.m.</strong> · Misa</div>
       </div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Our+Lady+of+Guadalupe+Catholic+Church+Mission+TX" target="_blank" rel="noopener" class="btn-map">
+      <div class="loc-row"><svg class="loc-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="loc-txt">620 N Dunlap Ave<br>Mission, TX 78572</div></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Our+Lady+of+Guadalupe+Catholic+Church+620+N+Dunlap+Ave+Mission+TX+78572" target="_blank" rel="noopener" class="btn-map">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Cómo llegar
       </a>
@@ -505,14 +506,15 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
         <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="loc-txt"><strong>6:30 p.m.</strong> · Recepción</div>
       </div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Palazzio+Event+Center+Mission+TX" target="_blank" rel="noopener" class="btn-map">
+      <div class="loc-row"><svg class="loc-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="loc-txt">503 State Hwy 495<br>Alamo, TX 78516</div></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Palazzio+Event+Center+503+State+Hwy+495+Alamo+TX+78516" target="_blank" rel="noopener" class="btn-map">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Cómo llegar
       </a>
     </div>
 
     <div class="cal-row rv">
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Lorena+%26+Sergio&dates=20261107T231500Z/20261108T060000Z&details=Misa+5%3A15+PM+%C2%B7+Our+Lady+of+Guadalupe+Catholic+Church%0ARecepci%C3%B3n+6%3A30+PM+%C2%B7+Palazzio+Event+Center&location=Mission%2C+Texas" target="_blank" rel="noopener" class="btn-cal">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Lorena+%26+Sergio&dates=20261107T231500Z/20261108T060000Z&details=Misa+5%3A15+PM+%C2%B7+Our+Lady+of+Guadalupe+Catholic+Church%0ARecepci%C3%B3n+6%3A30+PM+%C2%B7+Palazzio+Event+Center&location=620+N+Dunlap+Ave%2C+Mission%2C+TX+78572" target="_blank" rel="noopener" class="btn-cal">
         <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v10zM7 11h5v5H7z"/></svg>
         Guardar en calendario
       </a>
@@ -651,7 +653,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
           <div class="qr-finder qr-finder-bl"></div>
         </div>
       </div>
-      <span class="album-qr-note">Próximamente</span>
+      <span class="album-qr-note">El álbum se habilita el día del evento</span>
     </div>
   </section>
 
