@@ -91,6 +91,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 @keyframes goldSweep{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .eyebrow{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;color:var(--champ);text-align:center;margin-bottom:14px;display:block;text-shadow:0 1px 6px rgba(50,30,10,.45)}
 .heading{font-family:'Great Vibes',cursive;font-weight:400;font-size:58px;text-align:center;line-height:1.15;margin-bottom:6px;padding:0 .1em}
+.heading-sm.foil,.heading.foil{padding-top:.28em;margin-top:-.28em}
 .heading-sm{font-family:'Great Vibes',cursive;font-weight:400;font-size:46px;text-align:center;line-height:1.2;padding:0 .1em}
 .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:20px;color:var(--white);text-align:center;line-height:1.6;text-shadow:0 1px 8px rgba(50,30,10,.4)}
 .body-txt{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--white);text-align:center;line-height:1.7;text-shadow:0 1px 6px rgba(50,30,10,.35)}
@@ -206,6 +207,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .dc-row{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;row-gap:16px}
 .dc-sw{display:flex;flex-direction:column;align-items:center;gap:7px;width:58px}
 .dc-circle{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,242,213,.85);box-shadow:0 3px 10px rgba(30,18,6,.35);position:relative}
+.dc-avoid .dc-sw{width:44px}
 .dc-avoid .dc-circle::after{content:'';position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:#FFF2D5;transform:translateX(-50%) rotate(45deg);box-shadow:0 0 0 1px rgba(60,35,10,.5)}
 .dc-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--white);text-align:center;line-height:1.35}
 
@@ -537,23 +539,12 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <div class="hero-inner">
       <div class="hero-rule"><i></i><span></span><i></i></div>
       <p class="hero-date">Sábado 7 · Noviembre · 2026
-        <span class="hero-place">Mission, Texas</span>
       </p>
     </div>
     <div class="scroll-hint" id="scrollHint">
       <span class="scroll-hint-txt">Desliza</span>
       <span class="scroll-hint-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
     </div>
-  </section>
-
-  <!-- (2) MENSAJE DE UNIÓN -->
-  <section class="sec sx sx-caramel grain rv" data-fx="m1" style="text-align:center">
-    <span class="eyebrow">Con la bendición de Dios</span>
-    <div class="orn"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <h2 class="heading foil">Lorena y Sergio</h2>
-    <p class="sub" style="margin-top:10px">tenemos el honor de invitarte<br>a celebrar nuestra unión matrimonial</p>
-    <div class="orn bot"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <p class="data" style="margin-top:24px">Sábado, 7 de Noviembre de 2026<br>Mission, Texas</p>
   </section>
 
   <!-- (3) CUENTA REGRESIVA -->
@@ -575,7 +566,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   <!-- (4) NUESTRAS FAMILIAS -->
   <section class="sec sx sx-gold grain rv" data-fx="m3 sheen" style="text-align:center">
     <span class="eyebrow">Con la bendición de</span>
-    <h2 class="heading-sm foil">Nuestras Familias</h2>
+    <h2 class="heading-sm foil">Nuestros Padres</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <div class="fam-grid rv">
       <div class="fam-card">
@@ -598,6 +589,16 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <!-- PENDIENTE: padrinos (el cliente pidió omitir por ahora) -->
   </section>
 
+  <!-- (2) MENSAJE DE UNIÓN -->
+  <section class="sec sx sx-caramel grain rv" data-fx="m1" style="text-align:center">
+    <span class="eyebrow">Con la bendición de Dios</span>
+    <div class="orn"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
+    <h2 class="heading foil">Lorena y Sergio</h2>
+    <p class="sub" style="margin-top:10px">tenemos el honor de invitarle<br>a celebrar nuestra unión matrimonial</p>
+    <div class="orn bot"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
+    <p class="data" style="margin-top:24px">Sábado, 7 de Noviembre de 2026<br>Mission, Texas</p>
+  </section>
+
   <!-- (5) UBICACIÓN -->
   <section class="sec sx sx-mocha grain rv" data-fx="m4" style="text-align:center">
     <span class="eyebrow">Dónde celebramos</span>
@@ -609,7 +610,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
       <div class="loc-venue">Our Lady of Guadalupe Catholic Church</div>
       <div class="loc-row">
         <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div class="loc-txt"><strong>5:15 p.m.</strong> · Misa</div>
+        <div class="loc-txt"><strong>5:00 p.m.</strong> · Misa</div>
       </div>
       <div class="loc-row"><svg class="loc-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="loc-txt">620 N Dunlap Ave<br>Mission, TX 78572</div></div>
       <a href="https://www.google.com/maps/search/?api=1&query=Our+Lady+of+Guadalupe+Catholic+Church+620+N+Dunlap+Ave+Mission+TX+78572" target="_blank" rel="noopener" class="btn-map">
@@ -635,7 +636,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     </div>
 
     <div class="cal-row rv">
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Lorena+%26+Sergio&dates=20261107T231500Z/20261108T060000Z&details=Misa+5%3A15+PM+%C2%B7+Our+Lady+of+Guadalupe+Catholic+Church%0ARecepci%C3%B3n+6%3A30+PM+%C2%B7+Palazzio+Event+Center&location=620+N+Dunlap+Ave%2C+Mission%2C+TX+78572" target="_blank" rel="noopener" class="btn-cal">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Lorena+%26+Sergio&dates=20261107T230000Z/20261108T060000Z&details=Misa+5%3A00+PM+%C2%B7+Our+Lady+of+Guadalupe+Catholic+Church%0ARecepci%C3%B3n+6%3A30+PM+%C2%B7+Palazzio+Event+Center&location=620+N+Dunlap+Ave%2C+Mission%2C+TX+78572" target="_blank" rel="noopener" class="btn-cal">
         <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v10zM7 11h5v5H7z"/></svg>
         Guardar en calendario
       </a>
@@ -648,11 +649,11 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <h2 class="heading-sm foil">Itinerario</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <div class="itin-list">
-      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">5:15 p.m.</div><div class="itin-ev">Misa</div><div class="itin-place">Our Lady of Guadalupe Catholic Church</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">5:00 p.m.</div><div class="itin-ev">Misa</div><div class="itin-place">Our Lady of Guadalupe Catholic Church</div></div>
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">6:30 p.m.</div><div class="itin-ev">Recepción</div><div class="itin-place">Palazzio Event Center</div></div>
-      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:15 p.m.</div><div class="itin-ev">Presentación de los Novios</div></div>
-      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:30 – 9:00 p.m.</div><div class="itin-ev">Cena</div></div>
-      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">8:00 p.m.</div><div class="itin-ev">Baile</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:00 p.m.</div><div class="itin-ev">Presentación de los Novios</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:15 p.m.</div><div class="itin-ev">Cena</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">8:00 p.m.</div><div class="itin-ev">Fiesta</div></div>
     </div>
   </section>
 
@@ -694,7 +695,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 
     <div class="dc-msg rv">
       <p>La vestimenta es formal.</p>
-      <p><strong>Para ellos</strong>Traje obscuro o esmóquin y corbata o moño. Trajes vaqueros en tonos sobrios con sombreros de lana son apropiados. No mezclilla.</p>
+      <p><strong>Para ellos</strong>Traje obscuro o esmóquin con corbata o moño. Trajes vaqueros en tonos sobrios con sombreros son apropiados. No mezclilla.</p>
       <p><strong>Para ellas</strong>Vestido largo o vestido midi elegante. Por favor evitar colores neón y estampados muy llamativos.</p>
     </div>
 
@@ -716,21 +717,21 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
       <span class="dc-pal-lbl">Colores sugeridos</span>
       <div class="dc-row">
         <div class="dc-sw"><div class="dc-circle" style="background:#000000"></div><span class="dc-name">Negro</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#606060"></div><span class="dc-name">Gris Oxford</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#553d00"></div><span class="dc-name">Café oscuro</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#263e0f"></div><span class="dc-name">Verde olivo</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#001e57"></div><span class="dc-name">Azul marino</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#606060"></div><span class="dc-name">Gris</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#553d00"></div><span class="dc-name">Café</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#263e0f"></div><span class="dc-name">Verde</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#001e57"></div><span class="dc-name">Azul</span></div>
       </div>
     </div>
     <div class="card dc-pal dc-avoid rv">
       <span class="dc-pal-lbl">Colores a evitar</span>
       <div class="dc-row">
-        <div class="dc-sw"><div class="dc-circle" style="background:#FFFFFF"></div><span class="dc-name">Blanco</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#5c0700"></div><span class="dc-name">Vino</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#fffb00"></div><span class="dc-name">Amarillo neón</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#00f900"></div><span class="dc-name">Verde neón</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#00fdff"></div><span class="dc-name">Turquesa neón</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#ff40ff"></div><span class="dc-name">Rosa neón</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#FFFFFF" title="Blanco"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#D0021B"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#fffb00"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#00f900"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#00fdff"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#ff40ff"></div></div>
       </div>
     </div>
   </section>
@@ -849,10 +850,6 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
           <div class="rsvp-pases-label">Pases</div>
           <div class="rsvp-pases-num" id="rsvpPasesNote">1</div>
         </div>
-        <p class="rsvp-pases-nota">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg>
-          <span>Los pases son <strong>personales e intransferibles</strong>. El acceso es únicamente para las personas registradas en esta invitación.</span>
-        </p>
         <div id="rsvp-bandeja">
           <div class="rsvp-asignados" id="rsvp-asignados" style="display:none"></div>
           <button class="rsvp-btn" id="btnEnviar" onclick="sendRsvp()"><span id="btnEnviarTxt">Confirmar asistencia</span></button>
@@ -1056,7 +1053,7 @@ function initMain(){
   initQrPlaceholder();
 
   /* Countdown — Mission, TX = CST (UTC−6) el 7 nov */
-  const target=new Date('2026-11-07T17:15:00-06:00');
+  const target=new Date('2026-11-07T17:00:00-06:00');
   function updateCd(){
     const diff=Math.max(0,target-Date.now());
     const vals=[String(Math.floor(diff/86400000)).padStart(2,'0'),
