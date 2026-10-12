@@ -490,6 +490,29 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 @keyframes envBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
 @media(prefers-reduced-motion:reduce){.env-body.landed,.env-tap-hint.show{animation:none!important}}
 
+
+/* ── GALERÍA — carrusel horizontal premium (32 fotos) ── */
+.hc{position:relative;margin:26px -30px 0}
+.hc-track{--w:clamp(230px,70vw,300px);display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding:18px calc(50% - var(--w)/2) 26px;scrollbar-width:none}
+.hc-track::-webkit-scrollbar{display:none}
+.hc-card{flex:0 0 var(--w);aspect-ratio:4/5;margin:0;scroll-snap-align:center;position:relative;border-radius:6px;overflow:hidden;
+  background:linear-gradient(135deg,#7C5C3B,#9C774D);
+  box-shadow:0 18px 40px rgba(40,25,10,.38),0 0 0 1px rgba(247,231,206,.55);
+  transform:scale(.86);opacity:.55;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s ease,box-shadow .55s ease}
+.hc-card::after{content:'';position:absolute;inset:8px;border:1px solid rgba(255,242,213,.55);border-radius:3px;pointer-events:none}
+.hc-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .6s ease}
+.hc-card img.is-loaded{opacity:1}
+.hc-card.is-active{transform:scale(1);opacity:1;box-shadow:0 24px 50px rgba(40,25,10,.45),0 0 0 1px rgba(247,231,206,.9),0 0 30px rgba(212,175,55,.25)}
+.hc-ui{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:4px}
+.hc-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(247,231,206,.7);background:rgba(58,38,18,.25);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.hc-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hc-count{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;letter-spacing:.18em;color:var(--champ);min-width:84px;text-align:center}
+.hc-count b{color:var(--white);font-size:20px}
+.hc-bar{width:160px;height:2px;margin:14px auto 0;background:rgba(247,231,206,.25);border-radius:2px;overflow:hidden}
+.hc-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#F3DCA6,#D4AF37);transition:width .5s ease}
+@media(prefers-reduced-motion:reduce){.hc-card,.hc-card img{transition:none}}
+
 /* pausa fuera de pantalla (clase añadida, nunca quitada por defecto) */
 .sx.is-idle>.fx,.sx.is-idle>.fx::before,.sx.is-idle>.fx::after{animation-play-state:paused}
 /* el cierre usa el mismo color costura */
@@ -573,7 +596,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
       <div class="fam-card">
         <span class="fam-role-lbl">Padres de<br>la novia</span>
         <div class="fam-pair">
-          <span class="fam-name">Silvia Chávez</span>
+          <span class="fam-name">Sylvia Chavez de Caballero</span>
           <div class="fam-and"><div class="fam-and-line"></div><span class="fam-and-txt">y</span><div class="fam-and-line"></div></div>
           <span class="fam-name">Octaviano Caballero</span>
         </div>
@@ -663,29 +686,49 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <span class="eyebrow">Nuestra Historia</span>
     <h2 class="heading-sm foil">Galería</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:26px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <div class="wheel-scene" id="wheel-scene">
-      <div class="wheel-ring" id="wheel-ring">
-        <div class="wheel-card"><img src="img/g01.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g02.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g03.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g04.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g05.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g06.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g07.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g08.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g09.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g10.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g11.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g12.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g13.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g14.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g15.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g16.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g17.jpg" alt="Lorena y Sergio"></div>
-        <div class="wheel-card"><img src="img/g18.jpg" alt="Lorena y Sergio"></div>
+    <div class="hc rv" id="hc">
+      <div class="hc-track" id="hcTrack">
+        <figure class="hc-card"><img data-src="img/c01.jpg" alt="Lorena y Sergio · foto 1 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c02.jpg" alt="Lorena y Sergio · foto 2 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c03.jpg" alt="Lorena y Sergio · foto 3 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c04.jpg" alt="Lorena y Sergio · foto 4 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c05.jpg" alt="Lorena y Sergio · foto 5 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c06.jpg" alt="Lorena y Sergio · foto 6 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c07.jpg" alt="Lorena y Sergio · foto 7 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c08.jpg" alt="Lorena y Sergio · foto 8 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c09.jpg" alt="Lorena y Sergio · foto 9 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c10.jpg" alt="Lorena y Sergio · foto 10 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c11.jpg" alt="Lorena y Sergio · foto 11 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c12.jpg" alt="Lorena y Sergio · foto 12 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c13.jpg" alt="Lorena y Sergio · foto 13 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c14.jpg" alt="Lorena y Sergio · foto 14 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c15.jpg" alt="Lorena y Sergio · foto 15 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c16.jpg" alt="Lorena y Sergio · foto 16 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c17.jpg" alt="Lorena y Sergio · foto 17 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c18.jpg" alt="Lorena y Sergio · foto 18 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c19.jpg" alt="Lorena y Sergio · foto 19 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c20.jpg" alt="Lorena y Sergio · foto 20 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c21.jpg" alt="Lorena y Sergio · foto 21 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c22.jpg" alt="Lorena y Sergio · foto 22 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c23.jpg" alt="Lorena y Sergio · foto 23 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c24.jpg" alt="Lorena y Sergio · foto 24 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c25.jpg" alt="Lorena y Sergio · foto 25 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c26.jpg" alt="Lorena y Sergio · foto 26 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c27.jpg" alt="Lorena y Sergio · foto 27 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c28.jpg" alt="Lorena y Sergio · foto 28 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c29.jpg" alt="Lorena y Sergio · foto 29 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c30.jpg" alt="Lorena y Sergio · foto 30 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c31.jpg" alt="Lorena y Sergio · foto 31 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c32.jpg" alt="Lorena y Sergio · foto 32 de 32" decoding="async"></figure>
       </div>
     </div>
-    <p class="gal-hint rv">Arrastra para girar</p>
+    <div class="hc-ui rv">
+      <button class="hc-btn" id="hcPrev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <span class="hc-count"><b id="hcNum">01</b> / 32</span>
+      <button class="hc-btn" id="hcNext" type="button" aria-label="Foto siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="hc-bar rv"><i id="hcBar"></i></div>
+    <p class="gal-hint rv">Desliza para ver más</p>
   </section>
 
   <!-- (8) CÓDIGO DE VESTIMENTA -->
@@ -1029,6 +1072,43 @@ function initWheel(){
   })();
 }
 
+
+/* ── GALERÍA — carrusel horizontal: carga diferida propia, tarjeta activa, avance automático ── */
+function initHCarousel(){
+  const track=document.getElementById('hcTrack');
+  if(!track)return;
+  const cards=[...track.querySelectorAll('.hc-card')];
+  const n=cards.length, num=document.getElementById('hcNum'), bar=document.getElementById('hcBar');
+  let idx=0, timer=null, resumeT=null, raf=null;
+  function load(i){
+    const c=cards[(i+n)%n]; if(!c)return;
+    const im=c.querySelector('img');
+    if(im&&!im.src&&im.dataset.src){im.onload=()=>im.classList.add('is-loaded');im.src=im.dataset.src;}
+  }
+  function setActive(i){
+    idx=i;
+    cards.forEach((c,k)=>c.classList.toggle('is-active',k===i));
+    for(let k=-2;k<=3;k++)load(i+k);
+    if(num)num.textContent=String(i+1).padStart(2,'0');
+    if(bar)bar.style.width=((i+1)/n*100)+'%';
+  }
+  function centerOf(i){const c=cards[i];return c.offsetLeft+c.offsetWidth/2-track.clientWidth/2;}
+  function go(i,smooth){i=(i+n)%n;track.scrollTo({left:centerOf(i),behavior:smooth===false?'auto':'smooth'});setActive(i);}
+  function nearest(){
+    const mid=track.scrollLeft+track.clientWidth/2;let best=0,bd=1e9;
+    cards.forEach((c,k)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(d<bd){bd=d;best=k;}});
+    return best;
+  }
+  track.addEventListener('scroll',()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=null;const k=nearest();if(k!==idx)setActive(k);});},{passive:true});
+  function start(){stop();timer=setInterval(()=>go(idx+1),3800);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function pauseThenResume(){stop();clearTimeout(resumeT);resumeT=setTimeout(start,4000);}
+  ['touchstart','pointerdown','wheel'].forEach(ev=>track.addEventListener(ev,pauseThenResume,{passive:true}));
+  document.getElementById('hcPrev').addEventListener('click',()=>{pauseThenResume();go(idx-1);});
+  document.getElementById('hcNext').addEventListener('click',()=>{pauseThenResume();go(idx+1);});
+  setActive(0);go(0,false);start();
+}
+
 /* ── ÁLBUM QR PLACEHOLDER ── */
 function initQrPlaceholder(){
   const grid=document.getElementById('qrGrid');
@@ -1050,7 +1130,7 @@ function initMain(){
   mainReady=true;
   window.scrollTo(0,0);
   launchPetals();
-  initWheel();
+  initHCarousel();
   initQrPlaceholder();
 
   /* Countdown — Mission, TX = CST (UTC−6) el 7 nov */
