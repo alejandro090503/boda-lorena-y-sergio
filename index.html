@@ -111,7 +111,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 55%;display:block;transform-origin:50% 40%;animation:heroFloat 24s ease-in-out infinite}
 @keyframes heroFloat{0%,100%{transform:scale(1.06)}50%{transform:scale(1.12) translate(-1%,-1%)}}
 .hero-veil{position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(60,40,20,.62) 0%,rgba(60,40,20,.38) 20%,rgba(60,40,20,0) 38%,rgba(60,40,20,0) 62%,rgba(138,104,68,.6) 78%,rgba(138,104,68,.92) 90%,var(--cafe) 100%)}
+  background:linear-gradient(to bottom,rgba(60,40,20,.25) 0%,rgba(60,40,20,0) 18%,rgba(60,40,20,0) 52%,rgba(138,104,68,.6) 70%,rgba(138,104,68,.92) 90%,var(--cafe) 100%)}
 .hero-frame{position:absolute;inset:16px;z-index:4;pointer-events:none;border:1px solid rgba(247,231,206,.6)}
 .hero-frame::after{content:'';position:absolute;inset:6px;border:1px solid rgba(247,231,206,.28)}
 .hero-frame .cnr{position:absolute;width:32px;height:32px;color:var(--gold-lt)}
@@ -124,7 +124,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .hero-names{font-family:'Great Vibes',cursive;font-size:clamp(44px,13.4vw,60px);line-height:1.1;white-space:nowrap;color:var(--white);text-shadow:0 2px 18px rgba(40,25,10,.55),0 1px 4px rgba(40,25,10,.4)}
 .hero-names .amp{display:inline-block;font-size:.8em;margin:0 .12em}
 .hero-kicker{display:block;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14.5px;letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;color:var(--cream);margin-bottom:10px;text-shadow:0 1px 8px rgba(40,25,10,.6)}
-.hero-rule{display:flex;align-items:center;justify-content:center;gap:12px;max-width:290px;margin:16px auto 14px}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:12px;max-width:290px;margin:12px auto 12px}
 .hero-rule i{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold-lt),transparent)}
 .hero-rule span{width:6px;height:6px;transform:rotate(45deg);background:var(--gold-lt);flex-shrink:0}
 .hero-date{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(16px,3.9vw,18px);letter-spacing:.2em;text-indent:.2em;text-transform:uppercase;color:var(--cream);line-height:1.9;text-shadow:0 1px 8px rgba(40,25,10,.5)}
@@ -279,8 +279,8 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 
 /* ── FINAL — nombres y fecha ── */
 #footer{position:relative;padding:0;text-align:center;overflow:hidden;isolation:isolate}
-.ft-photo{position:relative;height:min(78vh,620px);min-height:460px;display:flex;align-items:flex-end;justify-content:center}
-.ft-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;z-index:-2}
+.ft-photo{position:relative;height:min(92vh,720px);min-height:600px;display:flex;align-items:flex-end;justify-content:center}
+.ft-photo img{position:absolute;left:0;right:0;top:0;width:100%;height:76%;object-fit:cover;object-position:50% 48%;z-index:-2}
 .ft-photo::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,var(--cafe-lo) 0%,rgba(124,92,59,0) 22%,rgba(124,92,59,0) 46%,rgba(124,92,59,.75) 74%,var(--cafe-lo) 100%)}
 .ft-inner{padding:0 28px 44px}
 .footer-names{font-family:'Great Vibes',cursive;font-size:clamp(56px,16vw,70px);line-height:1.15;padding:0 .1em}
@@ -516,7 +516,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 /* pausa fuera de pantalla (clase añadida, nunca quitada por defecto) */
 .sx.is-idle>.fx,.sx.is-idle>.fx::before,.sx.is-idle>.fx::after{animation-play-state:paused}
 /* el cierre usa el mismo color costura */
-.ft-photo::before{background:linear-gradient(to bottom,var(--seam) 0%,rgba(138,104,68,.55) 9%,rgba(138,104,68,0) 24%,rgba(138,104,68,0) 46%,rgba(124,92,59,.75) 74%,var(--cafe-lo) 100%)}
+.ft-photo::before{background:linear-gradient(to bottom,var(--seam) 0%,rgba(138,104,68,.55) 8%,rgba(138,104,68,0) 20%,rgba(138,104,68,0) 54%,rgba(124,92,59,.8) 70%,var(--cafe-lo) 77%,var(--cafe-lo) 100%)}
 @media(prefers-reduced-motion:reduce){.sx>.fx{animation:none}}
 
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -556,11 +556,9 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
       <svg class="cnr cnr-bl"><use href="#cnr"/></svg>
       <svg class="cnr cnr-br"><use href="#cnr"/></svg>
     </div>
-    <div class="hero-top">
+    <div class="hero-inner">
       <span class="hero-kicker">Nos casamos</span>
       <h1 class="hero-names">Lorena<span class="amp foil">&amp;</span>Sergio</h1>
-    </div>
-    <div class="hero-inner">
       <div class="hero-rule"><i></i><span></span><i></i></div>
       <p class="hero-date">Sábado 7 · Noviembre · 2026
       </p>
