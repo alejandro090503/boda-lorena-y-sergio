@@ -250,6 +250,10 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .rsvp-card .eyebrow{color:var(--gold-deep);text-shadow:none}
 .rsvp-ornament{display:block;margin:0 auto 22px;width:min(240px,70vw);height:auto}
 .rsvp-title{font-family:'Great Vibes',cursive;font-size:clamp(40px,10vw,50px);color:var(--ink);margin-bottom:14px;line-height:1.15}
+/* A quién va dirigida: nombre grande con brillo dorado suave */
+.rsvp-para{margin:6px auto 14px;text-align:center}
+.rsvp-para-lbl{display:block;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink);opacity:.8;margin-bottom:4px;padding-left:.32em}
+.rsvp-para-nombre{display:inline-block;font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(40px,11vw,54px);line-height:1.25;padding:.18em .2em .1em;margin-top:-.18em;max-width:100%;overflow-wrap:anywhere;animation-duration:9s}
 .rsvp-title em{color:var(--gold-deep);font-style:normal}
 .rsvp-text{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--ink);line-height:1.65;margin:0 auto 22px;max-width:320px}
 .rsvp-text strong{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:#6B4510}
@@ -897,7 +901,10 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
         <span class="eyebrow">Confirmación de asistencia</span>
         <h2 class="rsvp-title">¿Nos <em>acompañas</em>?</h2>
         <p class="rsvp-text">Por favor confirma tu asistencia antes del <strong>14 de octubre de 2026</strong>. Nos encantará saber que estarás con nosotros.</p>
-        <p id="rsvpParaNote" style="display:none;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px;color:var(--ink);margin-bottom:12px"></p>
+        <div id="rsvpParaNote" class="rsvp-para" style="display:none">
+          <span class="rsvp-para-lbl">Esta invitación es para</span>
+          <span class="rsvp-para-nombre foil" id="rsvpParaNombre"></span>
+        </div>
         <div class="rsvp-divider">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
         </div>
@@ -1268,7 +1275,7 @@ function initMain(){
 
   function say(msg,color){if(!feedback)return;feedback.textContent=msg||'';feedback.style.color=color||'#6B4510';}
 
-  if(urlPara&&paraNote){paraNote.textContent='Esta invitación es para '+urlPara;paraNote.style.display='block';}
+  if(urlPara&&paraNote){document.getElementById('rsvpParaNombre').textContent=urlPara;paraNote.style.display='block';}
   if(btnEnviar)btnEnviar.disabled=true;
 
   function renderAsignados(){
