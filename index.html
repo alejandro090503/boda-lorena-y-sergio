@@ -232,6 +232,11 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .qr-finder-tr{top:0;right:0}
 .qr-finder-bl{bottom:0;left:0}
 .album-qr-note{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;line-height:1.7;max-width:280px;text-align:center;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+.album-qr.bloqueado .album-qr-box img{filter:blur(6px);opacity:.85}
+.album-qr.bloqueado .album-btn{pointer-events:none;opacity:.45 !important} /* GSAP puede poner opacity:1 inline */
+.album-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 30px;border-radius:50px;border:1.5px solid var(--gold-lt);background:linear-gradient(135deg,var(--gold-deep),var(--gold));color:var(--cream);font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;box-shadow:0 10px 26px rgba(40,25,10,.3)}
+.album-aviso{display:none;margin:18px auto 0}
+.album-qr.bloqueado + .album-aviso{display:block}
 
 /* ── RSVP ── */
 .rsvp-card{max-width:400px;margin:0 auto;background:rgba(255,248,236,.95);border:1px solid rgba(153,101,21,.4);padding:clamp(38px,7vw,54px) clamp(20px,5vw,32px);position:relative;border-radius:6px;box-shadow:0 24px 60px rgba(40,25,10,.3)}
@@ -848,19 +853,27 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   <!-- (10) ÁLBUM COMPARTIDO -->
   <section class="sec sx sx-caramel grain rv" data-fx="m1" style="text-align:center">
     <span class="eyebrow">Comparte tus fotos</span>
-    <h2 class="heading-sm foil">Álbum Compartido</h2>
+    <h2 class="heading-sm foil">Álbum de fotos</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:0"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <p class="body-txt" style="margin-top:22px">Captura los mejores momentos de nuestra boda y compártelos con nosotros escaneando este código.</p>
-    <div class="album-qr-wrap rv">
+    <p class="body-txt" style="margin-top:22px">Ayúdanos a guardar cada momento: sube aquí las fotos que tomes durante el evento.</p>
+    <!-- Álbum de Elysium: el QR abre /album → panel-invitados.vercel.app/subir/boda-lorena-y-sergio -->
+    <div class="album-qr-wrap album-qr rv" data-fecha="2026-11-07">
       <div class="album-qr-box">
-        <div class="qr-grid" id="qrGrid">
-          <div class="qr-finder qr-finder-tl"></div>
-          <div class="qr-finder qr-finder-tr"></div>
-          <div class="qr-finder qr-finder-bl"></div>
-        </div>
+        <img src="qr-album.png" alt="Código QR del álbum de fotos" width="152" height="152" style="width:100%;height:100%;display:block">
       </div>
-      <span class="album-qr-note">El álbum se habilita el día del evento</span>
+      <a class="album-btn" href="/album">Subir mis fotos</a>
     </div>
+    <span class="album-qr-note album-aviso">El álbum de fotos se habilita el día del evento. Regresa aquí y sube todas tus fotos de la noche ✨</span>
+    <script>
+      /* Se desbloquea solo el día del evento (la base además rechaza fotos antes de tiempo) */
+      (function(){
+        var box = document.querySelector('.album-qr');
+        if(!box) return;
+        var p = box.dataset.fecha.split('-');
+        var abre = new Date(+p[0], +p[1] - 1, +p[2], 0, 0, 0);
+        if(new Date() < abre) box.classList.add('bloqueado');
+      })();
+    </script>
   </section>
 
   <!-- (11) CONFIRMACIÓN DE ASISTENCIA -->
@@ -1221,8 +1234,22 @@ function initMain(){
   const RSVP_DEADLINE=new Date('2026-10-14T23:59:59-05:00'); // 14 oct 2026, hora de Texas
   const frozen=Date.now()>RSVP_DEADLINE.getTime();
 
+  /* El panel manda el link como token base64url en ?i= ("nombre|pases|menores"):
+     WhatsApp y Messenger no lo rompen. Se conserva ?para= por compatibilidad. */
+  function decodeInvite(tok){
+    try{
+      let b64=tok.replace(/-/g,'+').replace(/_/g,'/');
+      while(b64.length%4)b64+='=';
+      const bin=atob(b64),bytes=new Uint8Array(bin.length);
+      for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+      return (new TextDecoder().decode(bytes).split('|')[0]||'').trim();
+    }catch(e){return '';}
+  }
   const urlParams=new URLSearchParams(window.location.search);
-  const urlPara=(urlParams.get('para')||'').trim();
+  const urlTok=urlParams.get('i');
+  const urlPara=((urlTok?decodeInvite(urlTok):'')||urlParams.get('para')||'').trim();
+  /* Sin acentos ni mayúsculas para emparejar las respuestas guardadas */
+  const clave=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
 
   let nombresAsignados=[];
   const personChoices={};
@@ -1306,9 +1333,9 @@ function initMain(){
           if(pasesNote&&pasesDisplay){pasesNote.textContent=asignados.length;pasesDisplay.style.display='flex';}
           if(!frozen&&btnEnviar)btnEnviar.disabled=false;
           if(d.estado==='confirmado'||d.estado==='declino'){
-            const confLower=(d.nombres_confirmados||[]).map(x=>String(x).toLowerCase().trim());
+            const confK=(d.nombres_confirmados||[]).map(clave);
             nombresAsignados.forEach(function(nm,idx){
-              personChoices[idx]=(d.estado==='declino')?'no':(confLower.indexOf(String(nm).toLowerCase().trim())>=0?'yes':'no');
+              personChoices[idx]=(d.estado==='declino')?'no':(confK.indexOf(clave(nm))>=0?'yes':'no');
             });
             if(btnEnviarTxt)btnEnviarTxt.textContent='Actualizar respuesta';
             renderAsignados();
@@ -1317,7 +1344,8 @@ function initMain(){
             renderAsignados();
           }
         }else{
-          say('No encontramos lugares asignados a esta invitación.');
+          /* Link que el panel no conoce: no se deja confirmar (crearía una invitación suelta) */
+          say(d?'Tu invitación aún no tiene lugares asignados. Contacta a los novios.':'No encontramos tu invitación. Pide a los novios que te envíen tu enlace de nuevo.','#8a2a1a');
         }
         applyFreeze();
       })
@@ -1352,11 +1380,24 @@ function initMain(){
         nombres_confirmados:estado==='confirmado'?si:[]
       })
     })
-    .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(()=>{
+    .then(r=>r.json().catch(()=>null).then(d=>({ok:r.ok,status:r.status,d:d})))
+    .then(res=>{
       btnEnviar.disabled=false;
-      btnEnviarTxt.textContent='Actualizar respuesta';
-      mostrarGracias(estado,si);
+      /* Solo se da por registrada si el panel la guardó de verdad */
+      if(res.ok&&res.d&&res.d.ok){
+        btnEnviarTxt.textContent='Actualizar respuesta';
+        mostrarGracias(estado,si);
+        return;
+      }
+      btnEnviarTxt.textContent='Confirmar asistencia';
+      const err=res.d&&res.d.error;
+      if(res.status===423||err==='respuestas_cerradas'){
+        btnEnviar.disabled=true;if(editarBtn)editarBtn.disabled=true;
+        say('Las confirmaciones de esta invitación ya están cerradas. Si necesitas un cambio, contacta a los novios.','#8a2a1a');return;
+      }
+      say(err==='invitacion_borrada'?'Esta invitación ya no está activa. Contacta a los novios para que te envíen un enlace nuevo.'
+        :err==='no_match'?'No pudimos identificar tu invitación. Abre el enlace personalizado que te enviaron.'
+        :'Hubo un problema al enviar. Inténtalo de nuevo.','#8a2a1a');
     })
     .catch(()=>{
       btnEnviarTxt.textContent='Confirmar asistencia';
