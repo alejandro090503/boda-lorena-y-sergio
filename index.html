@@ -940,7 +940,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
         </svg>
         <span class="eyebrow">Confirmación de asistencia</span>
         <h2 class="rsvp-title">¿Nos <em>acompañas</em>?</h2>
-        <p class="rsvp-text">Por favor confirma tu asistencia antes del <strong>14 de octubre de 2026</strong>. Nos encantará saber que estarás con nosotros.</p>
+        <p class="rsvp-text">Por favor confirma tu asistencia antes del <strong>26 de octubre de 2026</strong>. Nos encantará saber que estarás con nosotros.</p>
         <div id="rsvpParaNote" class="rsvp-para" style="display:none">
           <span class="rsvp-para-lbl">Esta invitación es para</span>
           <span class="rsvp-para-nombre foil" id="rsvpParaNombre"></span>
@@ -981,7 +981,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
         <p id="rsvp-feedback"></p>
         <div class="rsvp-deadline">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
-          Fecha límite · 14 Octubre 2026
+          Fecha límite · 26 Octubre 2026
         </div>
       </div>
     </div>
@@ -1294,7 +1294,7 @@ function initMain(){
 function initRSVP(){
   var PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
   var RSVP_URL  = 'https://boda-lorena-y-sergio.vercel.app';
-  var DEADLINE  = new Date('2026-10-14T23:59:59-05:00'); /* 14 oct 2026, hora de Texas */
+  var DEADLINE  = new Date('2026-10-26T23:59:59-05:00'); /* 26 oct 2026, hora de Texas */
   var frozen    = Date.now() > DEADLINE.getTime();
   var ROJO      = '#b51a00';
 
