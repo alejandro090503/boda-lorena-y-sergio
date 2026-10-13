@@ -207,7 +207,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
 .dc-row{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;row-gap:16px}
 .dc-sw{display:flex;flex-direction:column;align-items:center;gap:7px;width:58px}
 .dc-circle{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,242,213,.85);box-shadow:0 3px 10px rgba(30,18,6,.35);position:relative}
-.dc-avoid .dc-sw{width:38px}
+.dc-avoid .dc-sw,.dc-pal .dc-sw{width:38px}
 .dc-avoid .dc-row{gap:9px;flex-wrap:nowrap}
 .dc-avoid .dc-circle::after{content:'';position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:#FFF2D5;transform:translateX(-50%) rotate(45deg);box-shadow:0 0 0 1px rgba(60,35,10,.5)}
 .dc-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--white);text-align:center;line-height:1.35}
@@ -600,22 +600,6 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     </div>
   </section>
 
-  <!-- (3) CUENTA REGRESIVA -->
-  <section class="sec-sm sx sx-deep grain rv" data-fx="m2" style="text-align:center">
-    <span class="eyebrow">Faltan</span>
-    <div class="card" style="max-width:380px;margin:0 auto;padding:30px 12px">
-      <div class="cd-row">
-        <div class="cd-unit"><span class="cd-value" id="cdDias">00</span><span class="cd-lbl">Días</span></div>
-        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
-        <div class="cd-unit"><span class="cd-value" id="cdHoras">00</span><span class="cd-lbl">Horas</span></div>
-        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
-        <div class="cd-unit"><span class="cd-value" id="cdMins">00</span><span class="cd-lbl">Min</span></div>
-        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
-        <div class="cd-unit"><span class="cd-value" id="cdSecs">00</span><span class="cd-lbl">Seg</span></div>
-      </div>
-    </div>
-  </section>
-
   <!-- (4) NUESTRAS FAMILIAS -->
   <section class="sec sx sx-gold grain rv" data-fx="m3 sheen" style="text-align:center">
     <span class="eyebrow">Con la bendición de</span>
@@ -649,7 +633,23 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <h2 class="heading foil">Lorena y Sergio</h2>
     <p class="sub" style="margin-top:10px">tenemos el honor de invitarle<br>a celebrar nuestra unión matrimonial</p>
     <div class="orn bot"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <p class="data" style="margin-top:24px">Sábado, 7 de Noviembre de 2026<br>Mission, Texas</p>
+    <p class="data" style="margin-top:24px">Sábado, 7 de Noviembre de 2026</p>
+  </section>
+
+  <!-- (3) CUENTA REGRESIVA -->
+  <section class="sec-sm sx sx-deep grain rv" data-fx="m2" style="text-align:center">
+    <span class="eyebrow">Faltan</span>
+    <div class="card" style="max-width:380px;margin:0 auto;padding:30px 12px">
+      <div class="cd-row">
+        <div class="cd-unit"><span class="cd-value" id="cdDias">00</span><span class="cd-lbl">Días</span></div>
+        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
+        <div class="cd-unit"><span class="cd-value" id="cdHoras">00</span><span class="cd-lbl">Horas</span></div>
+        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
+        <div class="cd-unit"><span class="cd-value" id="cdMins">00</span><span class="cd-lbl">Min</span></div>
+        <div class="cd-sep"><div class="cd-dot"></div><div class="cd-dot"></div></div>
+        <div class="cd-unit"><span class="cd-value" id="cdSecs">00</span><span class="cd-lbl">Seg</span></div>
+      </div>
+    </div>
   </section>
 
   <!-- (5) UBICACIÓN -->
@@ -704,7 +704,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <div class="itin-list">
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">5:00 p.m.</div><div class="itin-ev">Misa</div><div class="itin-place">Our Lady of Guadalupe Catholic Church</div></div>
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">6:30 p.m.</div><div class="itin-ev">Recepción</div><div class="itin-place">Palazzio Event Center</div></div>
-      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:00 p.m.</div><div class="itin-ev">Presentación de los Novios</div></div>
+      <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:00 p.m.</div><div class="itin-ev">Presentación</div></div>
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">7:15 p.m.</div><div class="itin-ev">Cena</div></div>
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">8:00 p.m.</div><div class="itin-ev">Fiesta</div></div>
     </div>
@@ -717,43 +717,45 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <div class="orn" style="margin-top:16px;margin-bottom:26px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <div class="hc rv" id="hc">
       <div class="hc-track" id="hcTrack">
-        <figure class="hc-card"><img data-src="img/c01.jpg" alt="Lorena y Sergio · foto 1 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c02.jpg" alt="Lorena y Sergio · foto 2 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c03.jpg" alt="Lorena y Sergio · foto 3 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c04.jpg" alt="Lorena y Sergio · foto 4 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c05.jpg" alt="Lorena y Sergio · foto 5 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c06.jpg" alt="Lorena y Sergio · foto 6 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c07.jpg" alt="Lorena y Sergio · foto 7 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c08.jpg" alt="Lorena y Sergio · foto 8 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c09.jpg" alt="Lorena y Sergio · foto 9 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c10.jpg" alt="Lorena y Sergio · foto 10 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c11.jpg" alt="Lorena y Sergio · foto 11 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c12.jpg" alt="Lorena y Sergio · foto 12 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c13.jpg" alt="Lorena y Sergio · foto 13 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c14.jpg" alt="Lorena y Sergio · foto 14 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c15.jpg" alt="Lorena y Sergio · foto 15 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c16.jpg" alt="Lorena y Sergio · foto 16 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c17.jpg" alt="Lorena y Sergio · foto 17 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c18.jpg" alt="Lorena y Sergio · foto 18 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c19.jpg" alt="Lorena y Sergio · foto 19 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c20.jpg" alt="Lorena y Sergio · foto 20 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c21.jpg" alt="Lorena y Sergio · foto 21 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c22.jpg" alt="Lorena y Sergio · foto 22 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c23.jpg" alt="Lorena y Sergio · foto 23 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c24.jpg" alt="Lorena y Sergio · foto 24 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c25.jpg" alt="Lorena y Sergio · foto 25 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c26.jpg" alt="Lorena y Sergio · foto 26 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c27.jpg" alt="Lorena y Sergio · foto 27 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c28.jpg" alt="Lorena y Sergio · foto 28 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c29.jpg" alt="Lorena y Sergio · foto 29 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c30.jpg" alt="Lorena y Sergio · foto 30 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c31.jpg" alt="Lorena y Sergio · foto 31 de 32" decoding="async"></figure>
-        <figure class="hc-card"><img data-src="img/c32.jpg" alt="Lorena y Sergio · foto 32 de 32" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c01.jpg" alt="Lorena y Sergio · foto 1 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c02.jpg" alt="Lorena y Sergio · foto 2 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c03.jpg" alt="Lorena y Sergio · foto 3 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c04.jpg" alt="Lorena y Sergio · foto 4 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c05.jpg" alt="Lorena y Sergio · foto 5 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c06.jpg" alt="Lorena y Sergio · foto 6 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c07.jpg" alt="Lorena y Sergio · foto 7 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c08.jpg" alt="Lorena y Sergio · foto 8 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c09.jpg" alt="Lorena y Sergio · foto 9 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c10.jpg" alt="Lorena y Sergio · foto 10 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c11.jpg" alt="Lorena y Sergio · foto 11 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c12.jpg" alt="Lorena y Sergio · foto 12 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c13.jpg" alt="Lorena y Sergio · foto 13 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c14.jpg" alt="Lorena y Sergio · foto 14 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c15.jpg" alt="Lorena y Sergio · foto 15 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c16.jpg" alt="Lorena y Sergio · foto 16 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c17.jpg" alt="Lorena y Sergio · foto 17 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c18.jpg" alt="Lorena y Sergio · foto 18 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c19.jpg" alt="Lorena y Sergio · foto 19 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c20.jpg" alt="Lorena y Sergio · foto 20 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c21.jpg" alt="Lorena y Sergio · foto 21 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c22.jpg" alt="Lorena y Sergio · foto 22 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c23.jpg" alt="Lorena y Sergio · foto 23 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c24.jpg" alt="Lorena y Sergio · foto 24 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c25.jpg" alt="Lorena y Sergio · foto 25 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c26.jpg" alt="Lorena y Sergio · foto 26 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c27.jpg" alt="Lorena y Sergio · foto 27 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c28.jpg" alt="Lorena y Sergio · foto 28 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c29.jpg" alt="Lorena y Sergio · foto 29 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c30.jpg" alt="Lorena y Sergio · foto 30 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c31.jpg" alt="Lorena y Sergio · foto 31 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c32.jpg" alt="Lorena y Sergio · foto 32 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c33.jpg" alt="Lorena y Sergio · foto 33 de 34" decoding="async"></figure>
+        <figure class="hc-card"><img data-src="img/c34.jpg" alt="Lorena y Sergio · foto 34 de 34" decoding="async"></figure>
       </div>
     </div>
     <div class="hc-ui rv">
       <button class="hc-btn" id="hcPrev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-      <span class="hc-count"><b id="hcNum">01</b> / 32</span>
+      <span class="hc-count"><b id="hcNum">01</b> / 34</span>
       <button class="hc-btn" id="hcNext" type="button" aria-label="Foto siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
     </div>
     <div class="hc-bar rv"><i id="hcBar"></i></div>
@@ -763,7 +765,7 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
   <!-- (8) CÓDIGO DE VESTIMENTA -->
   <section class="sec sx sx-caramel grain rv" data-fx="m1 sheen" style="text-align:center">
     <span class="eyebrow">Código de vestimenta</span>
-    <h2 class="heading-sm foil">Formal Elegante</h2>
+    <h2 class="heading-sm foil">Formal</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:0"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
 
     <div class="dc-msg rv">
@@ -789,11 +791,11 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
     <div class="card dc-pal rv">
       <span class="dc-pal-lbl">Colores sugeridos</span>
       <div class="dc-row">
-        <div class="dc-sw"><div class="dc-circle" style="background:#000000"></div><span class="dc-name">Negro</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#606060"></div><span class="dc-name">Gris</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#553d00"></div><span class="dc-name">Café</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#263e0f"></div><span class="dc-name">Verde</span></div>
-        <div class="dc-sw"><div class="dc-circle" style="background:#001e57"></div><span class="dc-name">Azul</span></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#000000"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#606060"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#553d00"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#263e0f"></div></div>
+        <div class="dc-sw"><div class="dc-circle" style="background:#001e57"></div></div>
       </div>
     </div>
     <div class="card dc-pal dc-avoid rv">
@@ -976,7 +978,6 @@ body{background:var(--cafe);color:var(--white);font-family:'Cormorant Garamond',
       <div class="ft-inner">
         <div class="footer-names foil rv">Lorena &amp; Sergio</div>
         <div class="footer-date rv">07 · Noviembre · 2026</div>
-        <div class="footer-place rv">Mission, Texas</div>
       </div>
     </div>
     <div class="ft-bottom">
